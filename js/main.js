@@ -52,14 +52,15 @@
     });
  
 const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.navigation');
-    const navLinks = document.querySelectorAll('.navigation li');
-    const searchbg = document.querySelector('.search__wraper');
+    const burger    =   document.querySelector('.burger');
+    const nav       =   document.querySelector('.navigation');
+    const navLinks  =   document.querySelectorAll('.navigation li');
 
     burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active');
-        searchbg.classList.toggle('search__wraper__bg');
+        nav.classList.toggle('nav-active'); 
+        $('.search__wraper').toggleClass('search__wraper__bg'); 
+        $('.nav-list').toggleClass('nav-list-mob'); 
+        $('body').toggleClass("overflow-lock");
         navLinks.forEach((link, index) => {
             if(link.style.animation) {
                 linl.style.animation = '';
