@@ -86,8 +86,8 @@
 }
 
 .sectitle-wraper {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 70px;
+    margin-bottom: 70px;
     text-align: center;
 }
 
@@ -740,16 +740,17 @@ body {
 
 .tractor-img {
     margin-bottom: -18px;
-    animation: tractor 8s linear infinite alternate;
+    animation: tractor 2s linear infinite alternate;
 }
 
 @keyframes tractor {
     0% {
-        margin-left: 0;
+        
+     
     }
 
     50% {
-        margin-left: 470px;
+    
 
     }
 
@@ -926,6 +927,17 @@ body {
     height: 260px;
     margin-bottom: 16px;
     border-radius: 20px;
+    position: relative;
+}
+.box-image-date{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    color: white;
+    background: #434343;
+    padding: 6px 15px;
+    border-radius: 15px;
+    visibility: hidden;
 }
 
 .box img {
@@ -939,6 +951,9 @@ body {
 
 .box img:hover {
     transform: scale(1.04);
+}
+.box:hover .box-image-date{
+    visibility: visible;
 }
 
 .box img:active {

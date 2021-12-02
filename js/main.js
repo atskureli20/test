@@ -53,14 +53,10 @@
  
 const navSlide = () => {
     const burger    =   document.querySelector('.burger');
-    const nav       =   document.querySelector('.navigation');
     const navLinks  =   document.querySelectorAll('.navigation li');
-
+    var STATUS      =   false;
+    // -------------------------------------------------------------
     burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active'); 
-        $('.search__wraper').toggleClass('search__wraper__bg'); 
-        $('.nav-list').toggleClass('nav-list-mob'); 
-        $('body').toggleClass("overflow-lock");
         navLinks.forEach((link, index) => {
             if(link.style.animation) {
                 linl.style.animation = '';
@@ -68,9 +64,31 @@ const navSlide = () => {
                 link.style.animation = 'navLinkFade 0.5s ease forwards $(index / 7 + 0.5s}s'
             }
         });
-        
-        burger.classList.toggle('toggle');
+        if ( STATUS == false ) {
+            $('.burger').addClass('toggle'); 
+            $('.navigation').addClass('nav-active'); 
+            $('.search__wraper').addClass('search__wraper__bg'); 
+            $('.nav-list').addClass('nav-list-mob'); 
+            $('body').addClass("overflow-lock");
+            STATUS = true;
+            $('.nav-link').click(function(){
+                $('.burger').removeClass('toggle');
+                $('.navigation').removeClass('nav-active'); 
+                $('.search__wraper').removeClass('search__wraper__bg'); 
+                $('.nav-list').removeClass('nav-list-mob'); 
+                $('body').removeClass("overflow-lock");
+                STATUS = false;
+            });
+        } else {
+            $('.burger').removeClass('toggle');
+            $('.navigation').removeClass('nav-active'); 
+            $('.search__wraper').removeClass('search__wraper__bg'); 
+            $('.nav-list').removeClass('nav-list-mob'); 
+            $('body').removeClass("overflow-lock");
+            STATUS = false;
+        }
     });
+    // -------------------------------------------------------------
 };
 navSlide();
  
